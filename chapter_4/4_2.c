@@ -4,8 +4,8 @@
 
 double atof(char s[])
 {
-	double val, power;
-	int i, sign;
+	double val, power, to;
+	int i, sign, f;
 
 	for (i = 0; isspace(s[i]);i++)
 		;
@@ -19,6 +19,30 @@ double atof(char s[])
 	for ( power = 1.0;isdigit(s[i]);i++) {
 		val = 10.0 * val + (s[i] - '0');
 		power *= 10.0;
+	}
+	if (s[i] == 'e')
+		i++;
+	if (s[i] == '+') {
+		f = 1;
+	}
+	else {
+		f = 0;
+	}
+	i++;
+	for (to = 0.0;isdigit(s[i]);i++) {
+		to = 10.0 * to + (s[i] - '0');
+	}
+	if (f == 1) {
+		while (to > 0) {
+			val *= 10;
+			to--;
+		}
+	}
+	else {
+		while (to > 0) {
+			val /= 10;
+			to--;
+		}
 	}
 	return sign * val / power;
 }

@@ -1,0 +1,13 @@
+#include <stdio.h>
+
+
+unsigned setbits(unsigned x, int p,int n, unsigned y)
+{
+	return ((x >> (p+1-n)) & ~(~0 << n));// & (x << n);
+}
+
+main()
+{
+	printf("%u\n", setbits(15, 3, 2, 3));
+	return 0;
+}
