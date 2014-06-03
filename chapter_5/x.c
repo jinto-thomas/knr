@@ -1,8 +1,13 @@
 #include <stdio.h>
 
+static char *me[][15] = {"you sold out",
+			 "manchester",
+			 "chelseA"};
+//int i = 0;
 main()
 {
-	static char name[][3] = {{1,2,3},{4,5,6}};
-
-	printf("%u\n",**name);
+	printf("1.%s\n",*me);
+//	printf("2.%u\n3.%u\n",*me++,me);
+//	printf("4.%u\n",++*me);	
+	return 0;
 }
