@@ -9,7 +9,7 @@ int my_getline(char *s,int lim)
                 *s = c;
         if (c == '\n')
                 *s++ = '\n';
-        c = '\0'; 
+        *s = '\0'; 
         return s - p;
 }
 
